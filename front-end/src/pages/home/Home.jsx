@@ -1,5 +1,5 @@
-import Header from '../../header/Header'
-import Posts from '../../posts/Posts'
+import Header from '../../components/header/Header'
+import Posts from '../../components/posts/Posts'
 import './home.css'
 
 export default function Home() {
