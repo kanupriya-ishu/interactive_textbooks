@@ -1,7 +1,9 @@
 import "./topbar.css"
 import logo from "../../assets/images/logo.png"
+import { Link } from "react-router-dom";
 
 export default function TopBar() {
+  const user = false;
   return (
     <div className='top'>
         <div className="topLeft">
@@ -9,15 +11,41 @@ export default function TopBar() {
         </div>
         <div className="topCenter">
             <ul className="topList">
-                <li className="topListItem">HOME</li>
-                <li className="topListItem">CREATE</li>
+                <li className="topListItem">
+                    <Link className="link" to="/">
+                        HOME
+                    </Link>
+                </li>
+                <li className="topListItem">
+                    <Link className="link" to="/write">
+                        CREATE
+                    </Link>
+                </li>
                 <li className="topListItem">USER TEXTBOOK</li>
-                <li className="topListItem">LOGOUT</li>
+                {user && <li className="topListItem">LOGOUT</li>}
             </ul>
         </div>
         <div className="topRight">
             <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
-            <i className="topIcon fa-solid fa-user"></i>
+            
+            {user ? (
+                <Link className="link" to="/settings">
+                    <i className="topIcon fa-solid fa-user"></i>
+                </Link>
+                ) : (
+                <ul className="topList">
+                    <li className="topListItem">
+                    <Link className="link" to="/login">
+                        LOGIN
+                    </Link>
+                    </li>
+                    <li className="topListItem">
+                    <Link className="link" to="/register">
+                        REGISTER
+                    </Link>
+                    </li>
+                </ul>
+        )}
         </div>
     </div>
   )
