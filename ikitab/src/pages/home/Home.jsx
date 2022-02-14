@@ -10,16 +10,16 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("/posts");
-      console.log(res.data);
+      setPosts(res.data);
     };
     fetchPosts();
   }, []);
-  
+
   return (
       <>
         <Header/>
         <div className='home'>
-            <Posts />
+          <Posts posts={posts}/>
         </div>
       </>
     
