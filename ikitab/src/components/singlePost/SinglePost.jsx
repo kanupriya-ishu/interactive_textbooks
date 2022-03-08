@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import "./singlePost.css"
 import { Link } from "react-router-dom";
+import "./singlePost.css"
 
 export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
+  const PF = "http://localhost:5000/images/";
 
   useEffect(() => {
     const getPost = async () => {
@@ -21,7 +22,7 @@ export default function SinglePost() {
     <div className="singlePost">
         <div className="singlePostWrapper">
         {post.photo && (
-          <img src={post.photo} alt="" className="singlePostImg" />
+          <img src={PF + post.photo} alt="" className="singlePostImg" />
         )}
 
             <h1 className="singlePostTitle">{post.title}
