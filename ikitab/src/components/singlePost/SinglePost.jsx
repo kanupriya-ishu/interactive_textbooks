@@ -34,6 +34,7 @@ export default function SinglePost() {
     } catch (err) {}
   };
 
+  // updating post
   const handleUpdate = async () => {
     try {
       await axios.put(`/posts/${post._id}`, {
