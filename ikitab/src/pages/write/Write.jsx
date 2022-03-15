@@ -1,7 +1,12 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import "./write.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
+import { EditorState } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import { convertToHTML } from 'draft-convert';
+import DOMPurify from 'dompurify';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 export default function Write() {
   const [title, setTitle] = useState("");
@@ -32,6 +37,25 @@ export default function Write() {
     } catch (err) {}
   };
   
+  const [editorState, setEditorState] = useState(
+    () => EditorState.createEmpty(),
+  );
+  const  [convertedContent, setConvertedContent] = useState(null);
+  const handleEditorChange = (state) => {
+    setEditorState(state);
+    convertContentToHTML();
+  }
+  const convertContentToHTML = () => {
+    let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
+    setConvertedContent(currentContentAsHTML);
+    setDesc(currentContentAsHTML);
+  }
+  const createMarkup = (html) => {
+    return  {
+      __html: DOMPurify.sanitize(html)
+    }
+  }
+
   return (
     <div className="write">
       {file && (
@@ -60,12 +84,21 @@ export default function Write() {
           />
         </div>
         <div className="writeFormGroup">
-        <textarea
+        {/* <textarea
             placeholder="Tell your story..."
             type="text"
             className="writeInput writeText"
             onChange={e=>setDesc(e.target.value)}
-          ></textarea>
+          >
+        </textarea> */}
+
+      <Editor
+        editorState={editorState}
+        onEditorStateChange={handleEditorChange}
+        wrapperClassName="wrapper-class"
+        editorClassName="editor-class"
+        toolbarClassName="toolbar-class"
+      />
         </div>
         <button className="writeSubmit" type="submit">
           Publish

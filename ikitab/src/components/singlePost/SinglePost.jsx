@@ -1,9 +1,15 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./singlePost.css";
+import { EditorState, ContentState, convertFromHTML } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import { convertToHTML } from 'draft-convert';
+import DOMPurify from 'dompurify';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import Parser from 'html-react-parser';
 
 export default function SinglePost() {
   const location = useLocation();
@@ -45,6 +51,29 @@ export default function SinglePost() {
       setUpdateMode(false)
     } catch (err) {}
   };
+
+  const [editorState, setEditorState] = useState(
+    () => EditorState.createWithContent(
+      ContentState.createFromBlockArray(
+        convertFromHTML(desc)
+      )
+    ),
+  );
+  const  [convertedContent, setConvertedContent] = useState(null);
+  const handleEditorChange = (state) => {
+    setEditorState(state);
+    convertContentToHTML();
+  }
+  const convertContentToHTML = () => {
+    let currentContentAsHTML = convertToHTML(editorState.getCurrentContent());
+    setConvertedContent(currentContentAsHTML);
+    setDesc(currentContentAsHTML);
+  }
+  const createMarkup = (html) => {
+    return  {
+      __html: DOMPurify.sanitize(html)
+    }
+  }
 
   return (
     <div className="singlePost">
@@ -89,13 +118,21 @@ export default function SinglePost() {
           </span>
         </div>
         {updateMode ? (
-          <textarea
-            className="singlePostDescInput"
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
+          // <textarea
+          //   className="singlePostDescInput"
+          //   value={desc}
+          //   onChange={(e) => setDesc(e.target.value)}
+          // />
+          <Editor
+            contentState={desc}
+            editorState={editorState}
+            onEditorStateChange={handleEditorChange}
+            wrapperClassName="wrapper-class"
+            editorClassName="editor-class"
+            toolbarClassName="toolbar-class"
           />
         ) : (
-          <p className="singlePostDesc">{desc}</p>
+          <p className="singlePostDesc">{Parser(desc)}</p>
         )}
         {updateMode && (
           <button className="singlePostButton" onClick={handleUpdate}>
