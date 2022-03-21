@@ -5,9 +5,15 @@ import Write from "./pages/write/Write";
 import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import UserTextbook from "./pages/userTextbook/UserTextbook";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
+import NewBook from "./pages/newBook/NewBook";
+import Book from "./pages/book/Book";
+import EditBook from "./pages/editBook/EditBook";
+import LessonDetail from "./pages/lessonDetail/LessonDetail";
+import NewLesson from "./pages/newLesson/NewLesson"
 
 function App() {
   const {user} = useContext(Context);
@@ -31,6 +37,24 @@ function App() {
         <Route path="/write">{user ? <Write /> : <Login />}</Route>
         <Route path="/settings">
           {user ? <Settings /> : <Login />}
+        </Route>
+        <Route path="/userTextbooks">
+          <UserTextbook />
+        </Route>
+        <Route path="/newBook">
+          <NewBook />
+        </Route>
+        <Route path="/editBook">
+          <EditBook />
+        </Route>
+        <Route path="/book/:id">
+          <Book />
+        </Route>
+        <Route path="/books/:bookid/lessons/:lesson_id">
+          <LessonDetail />
+        </Route>
+        <Route path="/books/:id/newLesson">
+          <NewLesson />
         </Route>
       </Switch>
     </Router>

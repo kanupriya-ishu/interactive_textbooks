@@ -29,7 +29,11 @@ export default function TopBar() {
                         CREATE
                     </Link>
                 </li>
-                <li className="topListItem">USER TEXTBOOK</li>
+                <li className="topListItem">
+                    <Link className="link" to="/userTextbooks">
+                        USER TEXTBOOKS
+                    </Link>
+                </li>
                 <li className="topListItem" onClick={handleLogout}>
                     {user && "LOGOUT"}
                 </li>

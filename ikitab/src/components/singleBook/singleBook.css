@@ -1,0 +1,54 @@
+.singleBook{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.user{
+    display: block;
+    background-color: #332f2f;
+    float: right;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+.title{
+    text-align: center;
+}
+
+.para{
+    text-align: justify;
+}
+
+.middle{
+    display: flex;
+    justify-content: center;
+}
+
+.edit{
+    margin-right: 10px;
+    background-color: #ffed4f;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.edit:hover{
+    cursor: pointer;
+}
+
+.delete{
+    background-color: #f26363;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.delete:hover{
+    cursor: pointer;
+}
+
+.add{
+    margin-right: 10px;
+    background-color: #7ffa92;
+    padding: 10px;
+    border-radius: 5px;
+}
