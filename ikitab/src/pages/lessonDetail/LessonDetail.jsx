@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./lessonDetail.css"
 import Parser from 'html-react-parser';
+import Editor from "../../components/editor/Editor"
 
 export default function LessonDetail() {
     const location = useLocation();
@@ -53,6 +54,10 @@ export default function LessonDetail() {
         } catch (err) {}
       };
 
+      const onEditorChange = (value) => {
+        setLesson_Body(value)
+      }
+
     return(
         <div class="container">
             <div>
@@ -76,9 +81,12 @@ export default function LessonDetail() {
             </div>
             <div>
             {updateMode ? (
-                    <textarea rows="18" value={lesson_body} className="lesson_body editBox" onChange={(e) => setLesson_Body(e.target.value)}></textarea>
+                    <Editor 
+                      onEditorChange={onEditorChange}
+                      defaultContent= {lesson_body} />
                 ): 
-                <p className="lesson_body">{Parser(lesson_body)}</p>}
+                <p className="lesson_body">{Parser(lesson_body)}</p>
+            }
                 {updateMode && (
                     <button className="singlePostButton" onClick={handleUpdate}>
                         Update
