@@ -25,11 +25,6 @@ export default function TopBar() {
                     </Link>
                 </li>
                 <li className="topListItem">
-                    <Link className="link" to="/write">
-                        CREATE
-                    </Link>
-                </li>
-                <li className="topListItem">
                     <Link className="link" to="/userTextbooks">
                         USER TEXTBOOKS
                     </Link>
