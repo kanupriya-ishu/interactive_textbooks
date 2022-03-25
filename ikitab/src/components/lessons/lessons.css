@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 .lessonsHeader{
     text-align: center;
+	font-family: 'Montserrat', sans-serif;
 }
 table { 
 	width: 750px; 
 	border-collapse: collapse; 
-	margin:50px auto;
+	margin:20px auto;
 	}
+
+.tbt {
+	font-family: sans-serif;
+}
 
 /* Zebra striping */
 tr:nth-of-type(odd) { 
@@ -24,6 +30,10 @@ td, th {
 	text-align: left; 
 	font-size: 18px;
 	}
+
+.read{
+	color: #000;
+}
 
 /* 
 Max width before this PARTICULAR table gets nasty

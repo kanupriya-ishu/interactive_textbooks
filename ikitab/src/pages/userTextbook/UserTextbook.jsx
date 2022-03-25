@@ -19,7 +19,7 @@ export default function UserTextbook() {
   }, [search]);
 
   return (
-      <>
+      <div className="main">
         <div className="title">
             <h1>Textbooks by users</h1>
             <button className="button">
@@ -32,7 +32,7 @@ export default function UserTextbook() {
         <div className='userTexbooks'>
           <Books books={books}/>
         </div>
-      </>
+      </div>
     
   )
 }

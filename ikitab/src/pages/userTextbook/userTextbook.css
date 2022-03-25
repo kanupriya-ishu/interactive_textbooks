@@ -1,3 +1,6 @@
+.main{
+    padding-top: 5%;
+}
 .userTexbooks {
     display: flex;
 }

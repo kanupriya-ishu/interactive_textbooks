@@ -1,4 +1,5 @@
 .newBook {
+    padding-top: 5%;
     height: calc(100vh - 50px);
     display: flex;
     flex-direction: column;

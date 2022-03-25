@@ -8,19 +8,19 @@ export default function Lessons({lessons, book_id}) {
             <table>
                 <thead>
                     <tr>
-                        <th>Lesson no.</th>
-                        <th>Lesson Title</th>
-                        <th>Read</th>
+                        <th className='tbt'>Lesson no.</th>
+                        <th className='tbt'>Lesson Title</th>
+                        <th className='tbt'>Read</th>
                     </tr>
                 </thead>
                 <tbody>
                     {lessons.map((lesson) => (
                         <tr>
-                            <td data-column="Lesson Number">{lesson.lesson_number}</td>
-                            <td data-column="Lesson Title">{lesson.lesson_title}</td>
-                            <td data-column="Read">
-                                <Link to={`/books/${book_id}/lessons/${lesson._id}`}>
-                                    <i class="fa fa-book" aria-hidden="true"></i> Read
+                            <td className='tbt' data-column="Lesson Number">{lesson.lesson_number}</td>
+                            <td className='tbt' data-column="Lesson Title">{lesson.lesson_title}</td>
+                            <td className='tbt' data-column="Read">
+                                <Link className='link read' to={`/books/${book_id}/lessons/${lesson._id}`}>
+                                    <i className="fa fa-book " aria-hidden="true"></i> Read
                                 </Link>
                             </td>
                         </tr>

@@ -59,7 +59,7 @@ export default function LessonDetail() {
       }
 
     return(
-        <div class="container">
+        <div class="lessonDetail">
             <div>
                 {updateMode ? (
                   <input

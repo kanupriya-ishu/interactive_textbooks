@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 .singleBook{
     width: 80%;
     margin: 0 auto;
@@ -14,10 +15,12 @@
 
 .title{
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .para{
     text-align: justify;
+    font-family: sans-serif;
 }
 
 .middle{
@@ -51,4 +54,8 @@
     background-color: #7ffa92;
     padding: 10px;
     border-radius: 5px;
+}
+
+.singlePostTitleInput{
+    margin-top: 5%;
 }

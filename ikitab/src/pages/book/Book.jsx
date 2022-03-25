@@ -3,7 +3,7 @@ import './book.css'
 
 export default function Book() {
     return(
-        <div>
+        <div className="main">
             <SingleBook />
         </div>
     )

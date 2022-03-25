@@ -12,12 +12,13 @@ import Book from "./pages/book/Book";
 import EditBook from "./pages/editBook/EditBook";
 import LessonDetail from "./pages/lessonDetail/LessonDetail";
 import NewLesson from "./pages/newLesson/NewLesson"
+import NavBar from "./components/navBar/NavBar";
 
 function App() {
   const {user} = useContext(Context);
   return (
     <Router>
-      <TopBar />
+      <NavBar />
       <Switch>
         <Route exact path="/">
           <Home />

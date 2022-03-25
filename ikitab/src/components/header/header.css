@@ -1,4 +1,4 @@
-.header {
+/* .header {
     padding-top: 60px;
     background-image: linear-gradient(to bottom, #b6b6b6, #fbfbfb);
   }
@@ -27,4 +27,31 @@
     width: 100%;
     height: 450px;
     margin-top: 80px;
-  }
+  } */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Sacramento&display=swap');
+.header{
+  padding: auto;
+  background-color: #0b0c10;
+  color: #66fcf1;
+  padding-top: 10%;
+}
+
+.headerimg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 500px;
+  
+}
+
+.tagline{
+  color: #ffdd40;
+  text-align: center;
+  font-size: 350%;
+  font-style: italic;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'Sacramento', cursive;
+}
