@@ -1,0 +1,16 @@
+.benefit{
+    border-radius: 20%;
+    background-color: #0b0c10;
+    color: #ffdd40;
+    font-family: sans-serif;
+    font-style: italic;
+    /* display: inline; */
+    float: left;
+	padding: 0 8px;
+	width: 25%;
+	/* height: 400px; */
+	text-align: center; 
+	box-sizing: border-box;
+    margin-left: 6%;
+    margin-bottom: 1%;
+}
