@@ -5,7 +5,6 @@ import { useState } from "react";
 import Footer from '../../components/footer/Footer'
 
 export default function Register() {
-    const [userType, setUserType] = useState("0");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -16,7 +15,6 @@ export default function Register() {
       setError(false);
       try {
         const res = await axios.post("/auth/register", {
-          userType,
           username,
           email,
           password,
@@ -33,11 +31,6 @@ export default function Register() {
       
       <form className="registerForm" onSubmit={handleSubmit}>
       <span className="registerTitle">Register</span>
-        <label>Type</label>
-        <select className="registerInput" name="userType" onChange={(e) => setUserType(e.target.options.selectedIndex)}>
-          <option value="creator">Creator</option>
-          <option value="viewer">Viewer</option>
-        </select>
         <label>Username</label>
         <input
           type="text"
