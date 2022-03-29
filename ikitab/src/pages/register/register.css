@@ -1,29 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 .register {
-    height: calc(100vh - 50px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.5)
-      ),
-      url("https://images.pexels.com/photos/317355/pexels-photo-317355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-size: cover;
   }
   
   .registerTitle {
     font-size: 50px;
+    color: #ffdd40;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .registerForm {
-    margin-top: 20px;
+    margin-top: 8%;
+    margin-bottom: 5%;
     display: flex;
     flex-direction: column;
+    background-color: #0b0c10;
+    padding: 2% 5% 3% 5%;
+    border-radius: 5%;
   }
   
   .registerForm > label {
     margin: 10px 0;
+    color: #ffdd40;
   }
   
   .registerInput {
@@ -40,12 +41,25 @@
   .registerButton {
     margin-top: 20px;
     cursor: pointer;
-    background-color: teal;
-    color: white;
     padding: 10px;
     border: none;
     border-radius: 10px;
     text-align: center;
+  }
+
+  .loginbtn{
+      cursor: pointer;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      text-align: center;
+      width: 100%;
+  }
+
+  .yellow{
+    color: #ffdd40;
+    text-align: center;
+    margin-top: 15px;
   }
   
   .registerLoginButton {

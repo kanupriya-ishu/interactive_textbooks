@@ -13,7 +13,7 @@ export default function Footer() {
         <div class="footer-content-column">
           <div class="footer-logo">
           <NavLink exact to="/" className="nav-logo">
-                <img className="topImg" src={logo} alt="logo" /> iKitab
+                <img className="topImg" src={logo} alt="logo" /> i-Kitab
             </NavLink>
           </div>
         </div>

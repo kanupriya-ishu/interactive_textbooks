@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
+import Footer from '../../components/footer/Footer'
 import "./login.css";
 
 export default function Login() {
@@ -24,9 +25,10 @@ export default function Login() {
   };
   
   return (
+    <>
     <div className="login">
-      <span className="loginTitle">Login</span>
       <form className="loginForm" onSubmit={handleSubmit}>
+        <span className="loginTitle">Login</span>
         <label>Username</label>
         <input
           type="text"
@@ -41,15 +43,18 @@ export default function Login() {
           placeholder="Enter your password..."
           ref={passwordRef}
         />
-        <button className="loginButton" type="submit" disabled={isFetching}>
+        <button className="loginButton btn btn-warning" type="submit" disabled={isFetching}>
           Login
         </button>
-      </form>
-      <button className="loginRegisterButton">
+        <p className="yellow">OR</p>
         <Link className="link" to="/register">
-          Register
+        <button className="registerbtn btn btn-warning">
+            Register
+        </button>
         </Link>
-      </button>
+      </form>
     </div>
+    <Footer />
+    </>
   );
 }

@@ -49,14 +49,15 @@ export default function NavBar() {
                   Textbooks
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink
+              <li className="nav-item nav-links"
+                  onClick={handleLogout}>
+                {/* <NavLink
                   exact to = "/login"
                   className="nav-links"
                   onClick={handleLogout}
-                >
+                > */}
                   {user && "Logout"}
-                </NavLink>
+                {/* </NavLink> */}
               </li>
                 
                 {

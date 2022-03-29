@@ -2,6 +2,7 @@ import "./register.css"
 import { Link } from "react-router-dom"
 import axios from "axios";
 import { useState } from "react";
+import Footer from '../../components/footer/Footer'
 
 export default function Register() {
     const [userType, setUserType] = useState("0");
@@ -27,9 +28,11 @@ export default function Register() {
     };
 
     return (
+      <>
         <div className="register">
-      <span className="registerTitle">Register</span>
+      
       <form className="registerForm" onSubmit={handleSubmit}>
+      <span className="registerTitle">Register</span>
         <label>Type</label>
         <select className="registerInput" name="userType" onChange={(e) => setUserType(e.target.options.selectedIndex)}>
           <option value="creator">Creator</option>
@@ -56,10 +59,17 @@ export default function Register() {
           placeholder="Enter your password..."
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="registerButton" type="submit" >Register</button>
-      </form>
-        <button className="registerLoginButton"><Link className="link" to="/login">Login</Link></button>
+        <button className="registerButton btn btn-warning" type="submit" >Register</button>
+        <p className="yellow">OR</p>
+        <Link className="link" to="/login">
+        <button className="loginbtn btn btn-warning">
+            Login
+        </button>
+        </Link>
         {error && <span style={{color:"red", marginTop:"10px"}}>Something went wrong!</span>}
+      </form>
     </div>
+    <Footer />
+    </>
     )
 }
